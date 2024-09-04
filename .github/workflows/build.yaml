@@ -28,5 +28,4 @@ jobs:
         push: true
         tags: |
           enzo10villa/cd:latest
-          enzo10villa/cd:${{ github.sha }}  # Ajout de la balise unique basée sur le SHA
-
+          enzo10villa/cd:${{ github.sha }}
