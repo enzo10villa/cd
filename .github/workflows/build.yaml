@@ -3,7 +3,7 @@ name: Build App
 on:
     push:
         branches:
-        - main  # Si votre branche par défaut est 'master', remplacez 'main' par 'master'
+        - master
 
 jobs:
     build:
