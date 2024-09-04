@@ -24,3 +24,5 @@ jobs:
           with:
             push: true
             tags: enzo10villa/cd:latest
+            context: ./tp1  
+            file: ./tp1/Dockerfile
