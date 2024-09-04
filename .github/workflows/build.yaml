@@ -39,7 +39,7 @@ jobs:
     - name: Run SonarCloud Scan
       run: |
         sonar-scanner \
-          -Dsonar.projectKey=<enzo> \
+          -Dsonar.projectKey=enzo \
           -Dsonar.organization=enzo10villa
           -Dsonar.host.url=https://sonarcloud.io \
           -Dsonar.login=${{ secrets.SONAR_TOKEN }}
