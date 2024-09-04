@@ -50,6 +50,6 @@ jobs:
       with:
         args: >
           -Dsonar.organization=enzo10villa
-          -Dsonar.projectKey=your-project-key
+          -Dsonar.projectKey=enzo10villa_cd
           -Dsonar.host.url=https://sonarcloud.io
           -Dsonar.login=${{ secrets.SONAR_TOKEN }}
