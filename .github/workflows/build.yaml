@@ -4,12 +4,17 @@ on:
   push:
     branches:
       - master
+  pull_request:
+    types: [opened, synchronize, reopened]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2
@@ -30,16 +35,10 @@ jobs:
           enzo10villa/cd:latest
           enzo10villa/cd:${{ github.sha }}
 
-    - name: Set up SonarCloud
+    - name: SonarCloud Scan
       uses: sonarsource/sonarcloud-github-action@v2
       with:
         organization: 'enzo10villa'
-        token: ${{ secrets.SONAR_TOKEN }}
-
-    - name: Run SonarCloud Scan
-      run: |
-        sonar-scanner \
-          -Dsonar.projectKey=enzo10villa \
-          -Dsonar.organization=enzo10villa
-          -Dsonar.host.url=https://sonarcloud.io \
-          -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+        projectKey: 'enzo10villa'
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
