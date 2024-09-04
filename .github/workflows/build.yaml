@@ -33,13 +33,13 @@ jobs:
     - name: Set up SonarCloud
       uses: sonarsource/sonarcloud-github-action@v2
       with:
-        organization: ${{ secrets.SONAR_ORGANIZATION }}
+        organization: ${{ secrets.enzo10villa }}
         token: ${{ secrets.SONAR_TOKEN }}
 
     - name: Run SonarCloud Scan
       run: |
         sonar-scanner \
           -Dsonar.projectKey=<your_project_key> \
-          -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION }} \
+          -Dsonar.organization=${{ secrets.enzo10villa }} \
           -Dsonar.host.url=https://sonarcloud.io \
           -Dsonar.login=${{ secrets.SONAR_TOKEN }}
